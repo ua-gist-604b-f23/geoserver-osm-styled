@@ -58,7 +58,7 @@ curl -L -O https://download.geofabrik.de/north-america/us/hawaii-latest.osm.pbf 
 
 ### 6. Import OSM data
 
-I created a `[Dockerfile](./Dockerfile)` that contains the [imposm3](https://imposm.org/docs/imposm3/latest/tutorial.html) executable. This is the OSM Importer that will import OSM data into the schema that will work with our new styles.
+[imposm3](https://imposm.org/docs/imposm3/latest/tutorial.html)  is the OSM Importer that will import OSM data into the schema that will work with our new styles.
 
 
 This section serves as an alternate method for [The OSM PostGIS Database](https://github.com/geosolutions-it/osm-styles#the-osm-postgis-database) from the osm-styles README. Essentially, we are going to run `imposm` with:
