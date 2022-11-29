@@ -7,13 +7,13 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /workspaces/geoserver-osm-styled/postgres_data/data:/var/lib/postgresql/data
+      - /workspaces/${RepositoryName}/postgres_data/data:/var/lib/postgresql/data
   geoserver:
     image: "kartoza/geoserver"
     ports:
       - "8080:8080"
     volumes:
-      - /workspaces/geoserver-osm-styled/osm-styles:/opt/geoserver/data_dir
+      - /workspaces/${RepositoryName}/osm-styles:/opt/geoserver/data_dir
     environment:
       - GEOSERVER_ADMIN_USER=admin
       - GEOSERVER_ADMIN_PASSWORD=geoserver
