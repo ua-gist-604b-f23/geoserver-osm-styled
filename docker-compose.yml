@@ -17,7 +17,6 @@ services:
     environment:
       - GEOSERVER_ADMIN_USER=admin
       - GEOSERVER_ADMIN_PASSWORD=geoserver
-      - GEOSERVER_DATA_DIR=/workspaces/geoserver-osm-styled/osm-styles
       - STABLE_EXTENSIONS=css-plugin,feature-pregeneralized-plugin
       - HTTP_PROXY_NAME=${CODESPACE_NAME}-8080.preview.app.github.dev
       - HTTP_SCHEME=https
