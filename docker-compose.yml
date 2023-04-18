@@ -1,22 +1,24 @@
-version: "3.8"
-services:
+volumes:
+  postgres_data:
 
+services:
   postgis:
     image: "mdillon/postgis"
     hostname: postgis
     ports:
       - "5432:5432"
     volumes:
-      - /workspaces/${RepositoryName}/postgres_data/data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
   geoserver:
     image: "kartoza/geoserver"
     ports:
       - "8080:8080"
     volumes:
-      - /workspaces/${RepositoryName}/osm-styles:/opt/geoserver/data_dir
+      - ${CODESPACE_VSCODE_FOLDER}/osm-styles:/opt/geoserver/data_dir
     environment:
       - GEOSERVER_ADMIN_USER=admin
       - GEOSERVER_ADMIN_PASSWORD=geoserver
+      - GEOSERVER_DATA_DIR=/opt/geoserver/data_dir
       - STABLE_EXTENSIONS=css-plugin,feature-pregeneralized-plugin
       - HTTP_PROXY_NAME=${CODESPACE_NAME}-8080.preview.app.github.dev
       - HTTP_SCHEME=https
